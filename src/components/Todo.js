@@ -1,11 +1,13 @@
-// Display tasks on the screen
-import React, { Component } from 'react';
 
+import React, { Component } from 'react';
+import "./Todo.css"
 class Todo extends Component {
     render() {
+        console.log('this.props', this.props)
         return (
-            <div>
-                <h1>{this.props.item}</h1>
+            <div onClick= {()=> this.props.toggleItem(this.props.id)}
+            className={`item${this.props.completed ? " completed" : ""}`}>
+                <p>{this.props.item}</p>
             </div>
         );
     }
