@@ -14,7 +14,7 @@ export class TodoForm extends Component {
 
 handleChanges = (e) => {
     this.setState({
-        todo: e.target.value
+        todo: e.target.value,
     })
 }
 
@@ -36,17 +36,18 @@ handleClear = (e) => {
     render(props) {
         console.log(props)
         return (
-            <form>
+            <form className="form">
             {/* This is an uncontrolled component 😬 We want it to be controlled by state */}
             <input
+            className="input"
               type="text"
               name="todo"
               placeholder="Add a Todo"
               value= {this.state.todo}
               onChange= {this.handleChanges}
             />
-            <button onClick={this.handleSubmit}>Add Todo</button>
-            <button onClick={this.handleClear}>Clear Completed</button>
+            <button className= "btn" onClick={this.handleSubmit}>Add Todo</button>
+            <button className= "btn" onClick={this.handleClear}>Clear Completed</button>
           </form>
         )
     }

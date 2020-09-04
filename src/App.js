@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoForm from './components/TodoForm'
 import TodoList from './components/TodoList'
-
+import "./components/Todo.css"
 // set state to an object like this
 // todo =
 // {todo: "",
@@ -37,9 +37,6 @@ toggleItem = (itemId) => {
   })
 }
 
-
-
-
 clearCompleted = () => {
     
     this.setState({
@@ -50,7 +47,10 @@ clearCompleted = () => {
   };
 
 
+
+
 addTodo = (todoName) => {
+  console.log('this.state', todoName)
   this.setState({
     todos: [
       ...this.state.todos, {todo: todoName, id: Date.now(), completed: false}
@@ -62,11 +62,15 @@ addTodo = (todoName) => {
   render() {
    
     return (
-      <div className="container">
+      <>
+      <div className="header">
         <TodoForm addTodo={this.addTodo} clearCompleted={this.clearCompleted}/>
+        </div>
+        <div className="todos">
         <TodoList 
         todo={this.state.todos} toggleItem={this.toggleItem} clearCompleted={this.clearCompleted}/>
       </div>
+      </>
     );
   }
 }
